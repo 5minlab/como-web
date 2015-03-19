@@ -64,7 +64,8 @@ def hello():
     tos_file = os.path.join('data', "150213 Como's Adventure 법률 문서 - Terms of Service.csv")
     tos_lines = read_tos_file(tos_file)
     
-    return fl.render_template('tos.html', privacy_lines=privacy_lines, tos_lines=tos_lines)
+    title = "Como"
+    return fl.render_template('tos.html', privacy_lines=privacy_lines, tos_lines=tos_lines, title=title)
     
 if __name__ == '__main__':
     if len(sys.argv) == 1:
