@@ -78,6 +78,12 @@ def tos_como():
     url = "http://5minlab.github.io/como-web/tos/"
     return render_tos(title, url)
 
+@app.route('/tos/brex.html')
+def tos_brex():
+    title = "Brex"
+    url = "http://5minlab.github.io/como-web/tos/brex.html"
+    return render_tos(title, url)
+
 @app.route('/tos/hungry-mates.html')
 def tos_hungry_mates():
     title = "Hungry Mates"
