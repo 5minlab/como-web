@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
 from __future__ import print_function
@@ -9,49 +9,19 @@ import os
 import sys
 import csv
 import codecs
-import cStringIO
 
 app = fl.Flask(__name__)
 freezer = Freezer(app)
 
-class UTF8Recoder:
-    """
-    Iterator that reads an encoded stream and reencodes the input to UTF-8
-    """
-    def __init__(self, f, encoding):
-        self.reader = codecs.getreader(encoding)(f)
-
-    def __iter__(self):
-        return self
-
-    def next(self):
-        return self.reader.next().encode("utf-8")
-
-class UnicodeReader:
-    """
-    A CSV reader which will iterate over lines in the CSV file "f",
-    which is encoded in the given encoding.
-    """
-
-    def __init__(self, f, dialect=csv.excel, encoding="utf-8", **kwds):
-        f = UTF8Recoder(f, encoding)
-        self.reader = csv.reader(f, dialect=dialect, **kwds)
-
-    def next(self):
-        row = self.reader.next()
-        return [unicode(s, "utf-8") for s in row]
-
-    def __iter__(self):
-        return self
-
 def read_tos_file(filename, game_name, url):
     line_list = []
-    with open(filename, 'rb') as csvfile:
-        reader = UnicodeReader(csvfile)
+    
+    with open(filename, newline='', encoding='utf-8') as f:
+        reader = csv.reader(f)
         for i, row in enumerate(reader):
             if i == 0:
                 continue
-            line = unicode(row[3])
+            line = row[3]
             line_list.append(line)
 
     def replace_game_name(text):
@@ -94,6 +64,12 @@ def tos_hungry_mates():
 def tos_slime_slasher():
     title = 'Slime Slasher'
     url = "http://5minlab.github.io/como-web/tos/slime-slasher.html"
+    return render_tos(title, url)
+    
+@app.route('/tos/brickscape.html')
+def tos_brickscape():
+    title = 'Brickscape'
+    url = "http://5minlab.github.io/como-web/tos/brickscape.html"
     return render_tos(title, url)
 
 def render_tos(title, url):

@@ -58,3 +58,5 @@ build
 
 # origin data. use google spreadsheet
 data
+
+venv
