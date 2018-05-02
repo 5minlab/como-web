@@ -71,6 +71,12 @@ def tos_brickscape():
     title = 'Brickscape'
     url = "http://5minlab.github.io/como-web/tos/brickscape.html"
     return render_tos(title, url)
+    
+@app.route('/tos/toyclash.html')
+def tos_toyclash():
+    title = 'Toy Clash'
+    url = "http://5minlab.github.io/como-web/tos/toyclash.html"
+    return render_tos(title, url)
 
 def render_tos(title, url):
     privacy_file = os.path.join('data', "150213 Como's Adventure 법률 문서 - Privacy Policy.csv")

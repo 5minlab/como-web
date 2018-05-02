@@ -1,2 +1,0 @@
-Flask==0.10.1
-Frozen-Flask==0.11

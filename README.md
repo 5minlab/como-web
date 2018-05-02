@@ -5,9 +5,8 @@ Como web
 
 
 ```
-python3 -m venv venv
-venv\scripts\activate.bat
-pip install -r requirements.txt
+pipenv --python 3.6
+pipenv install
 ```
 
 ## runserver
@@ -15,11 +14,11 @@ pip install -r requirements.txt
 127.0.0.1:5000
 
 ```
-python main.py
+pipenv run python main.py
 ```
 
 ## build document
 
 ```
-python main.py freeze
+pipenv run python main.py freeze
 ```
