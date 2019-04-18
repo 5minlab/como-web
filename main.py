@@ -71,6 +71,12 @@ def tos_brickscape():
     title = 'Brickscape'
     url = "http://5minlab.github.io/como-web/tos/brickscape.html"
     return render_tos(title, url)
+
+@app.route('/tos/wtd.html')
+def tos_wtd():
+    title = 'wtd'
+    url = "http://5minlab.github.io/como-web/tos/wtd.html"
+    return render_tos(title, url)
     
 @app.route('/tos/toyclash.html')
 def tos_toyclash():
