@@ -11,6 +11,8 @@ import csv
 import codecs
 
 app = fl.Flask(__name__)
+app.config['FREEZER_DESTINATION'] = 'docs'
+
 freezer = Freezer(app)
 
 def read_tos_file(filename, game_name, url):
