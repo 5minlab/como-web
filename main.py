@@ -74,7 +74,7 @@ def tos_brickscape():
 
 @app.route('/tos/wtd.html')
 def tos_wtd():
-    title = 'wtd'
+    title = 'Express Thru'
     url = "http://5minlab.github.io/como-web/tos/wtd.html"
     return render_tos(title, url)
     
